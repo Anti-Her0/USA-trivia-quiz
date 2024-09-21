@@ -1,0 +1,349 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: transparent;
+    color: #d8c5b2 ;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+#quiz-container {
+    margin: 50px auto;
+    padding: 30px;
+    background-color:  #d8c5b2 ;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#question-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    background-color: #3C3B6E;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #B22234;
+}
+
+.btn.correct {
+    background-color: #28a745 !important;
+}
+
+.btn.wrong {
+    background-color: #dc3545 !important;
+}
+
+#result-container {
+    margin-top: 20px;
+    display: none;
+}
+
+#final-container {
+    display: none;
+    margin-top: 20px;
+}
+
+#final-score {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#replay-btn {
+    background-color: #3C3B6E;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#replay-btn:hover {
+    background-color: #B22234;
+}
+
+/* Fireworks Canvas */
+#fireworks-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.correct {
+    background-color: #4CAF50;
+    box-shadow: 0 0 10px 3px #4CAF50;
+  }
+  
+  .incorrect {
+    background-color: #FF6347;
+    box-shadow: 0 0 10px 3px #FF6347;
+  }
+
+  button:hover {
+    background-color: #4CAF50;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+
+  .question-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .question-container.show {
+    opacity: 1;
+  }
+  
+  body {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  body {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  body {
+    position: relative;
+    overflow: hidden;
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Ensure the body takes up the full viewport height */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Ensure no scrollbars appear */
+    height: 100vh;
+    background-color:   #002868;
+    ; /* Background for contrast */
+  }
+  
+  
+
+
+
+ /* Fireworks Container */
+.fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  /* Firework Base - Each firework will explode from this */
+  .firework {
+    position: absolute;
+    bottom: 0; /* Starts from the bottom */
+    left: 50%; /* Starts from the middle */
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: red;
+    animation: shoot 1s ease-out infinite, explode 1.2s ease-out 1s infinite;
+  }
+  
+  /* Animate the firework shooting up */
+  @keyframes shoot {
+    0% {
+      bottom: 0;
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      bottom: 50%;
+      opacity: 0; /* Disappears before the explosion */
+    }
+  }
+  
+  /* Explode animation creates the firework effect */
+  @keyframes explode {
+    0% {
+      width: 4px;
+      height: 4px;
+      opacity: 1;
+    }
+    10%, 100% {
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+    }
+  }
+  
+  /* Firework Particles */
+  .firework::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: inherit;
+    opacity: 0;
+    animation: particleExplosion 1.2s ease-out infinite;
+  }
+  
+  /* Particle explosion */
+  @keyframes particleExplosion {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(3);
+    }
+  }
+  
+  /* Multiple Colors for Fireworks */
+  .firework:nth-child(2) {
+    background-color: white;
+    left: 20%;
+    animation-delay: 0.3s;
+  }
+  
+  .firework:nth-child(3) {
+    background-color: blue;
+    left: 40%;
+    animation-delay: 0.6s;
+  }
+  
+  .firework:nth-child(4) {
+    background-color: red;
+    left: 60%;
+    animation-delay: 0.9s;
+  }
+  
+  .firework:nth-child(5) {
+    background-color: white;
+    left: 80%;
+    animation-delay: 1.2s;
+  }
+  
+  .firework:nth-child(6) {
+    background-color: blue;
+    left: 70%;
+    animation-delay: 1.5s;
+  }
+
+  
+
+ 
+  
+  body {
+    position: relative;
+    overflow: hidden;
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Ensure the body takes up the full viewport height */
+  }
+  
+  .stars {
+    width: 100%;
+    height: 100%;
+    background: url('1863.png') repeat;
+    background-size: cover; /* Ensures the image covers the entire page */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    z-index: -1; /* Keeps the stars behind the content */
+    animation: moveStars 30s linear infinite;
+  }
+  
+  @keyframes moveStars {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 1000px 1000px;
+    }
+  }
+  
+  
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    background-image: url('7228574.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+
+  /* General page content */
+.content {
+  min-height: 150vh; /* Ensures there's enough content height to force scrolling */
+  padding: 40px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+footer{
+  padding-top: 247px;
+  padding-right: 90%;
+  font-size: 50%;
+  color: #4e4c4c;
+  opacity: 80%;
+
+}
+
+html {
+ scroll-behavior: smooth;
+}  
+
+
+
